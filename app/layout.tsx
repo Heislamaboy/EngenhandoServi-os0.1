@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       { rel: "manifest", url: "/site.webmanifest" },
     ],
   },
-  metadataBase: new URL("https://seudominio.com"), // substitua pelo seu domínio real
+  metadataBase: new URL("landing-page-4j36.vercel.app"), // substitua pelo seu domínio real
 };
 
 export default function RootLayout({
