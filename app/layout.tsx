@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,32 +12,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/* METADATA GERAL */
 export const metadata: Metadata = {
   title: "Engenhando Serviços",
   description: "Cursos básicos profissionais 2026",
-  themeColor: "#f97316", // cor laranja
+
   icons: {
-    // favicon padrão
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" }, // para PWA/alta resolução
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
-    // apple touch icon
     apple: "/apple-touch-icon.png",
-    // manifest PWA
-    other: [
-      { rel: "manifest", url: "/site.webmanifest" },
-    ],
   },
-  metadataBase: new URL("landing-page-4j36.vercel.app"), // substitua pelo seu domínio real
+};
+
+/* VIEWPORT (onde o themeColor DEVE ficar) */
+export const viewport: Viewport = {
+  themeColor: "#f97316", // laranja
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="pt">
       <body

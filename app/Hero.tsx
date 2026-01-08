@@ -8,16 +8,15 @@ export default function Hero() {
   const [showHeader, setShowHeader] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
 
+  // Scroll para esconder/mostrar header
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      // Scroll para baixo → esconder
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setShowHeader(false)
       }
 
-      // Scroll para cima → mostrar
       if (currentScrollY < lastScrollY) {
         setShowHeader(true)
       }
@@ -29,6 +28,12 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
+  // Função de scroll para cursos
+  const scrollParaCursos = () => {
+    const section = document.getElementById('cursos')
+    section?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <>
       {/* HEADER */}
@@ -37,7 +42,6 @@ export default function Hero() {
           fixed top-0 left-0 w-full z-50
           bg-white/80 backdrop-blur-md shadow-sm
           transition-transform duration-300
-          md:translate-y-0
           ${showHeader ? 'translate-y-0' : '-translate-y-full'}
         `}
       >
@@ -61,13 +65,13 @@ export default function Hero() {
             <li><a href="#contato" className="hover:text-orange-500">Contato</a></li>
           </ul>
 
-          {/* BOTÃO DESKTOP */}
-          <a
-            href="https://wa.me/258843682011"
-            className="hidden md:inline-block bg-orange-500 text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600"
+          {/* BOTÃO DESKTOP - SCROLL */}
+          <button
+            onClick={scrollParaCursos}
+            className="hidden md:inline-block bg-orange-500 text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600 transition"
           >
             Inscrever-me
-          </a>
+          </button>
 
           {/* BOTÃO MOBILE */}
           <button
@@ -84,7 +88,6 @@ export default function Hero() {
         <div className="fixed inset-0 bg-black/50 z-50 flex justify-end">
           <div className="w-72 bg-white h-full p-6 shadow-xl">
 
-            {/* FECHAR */}
             <button
               onClick={() => setOpen(false)}
               className="mb-8 text-gray-700"
@@ -92,50 +95,45 @@ export default function Hero() {
               <X size={28} />
             </button>
 
-            {/* LINKS */}
             <ul className="flex flex-col gap-6 text-lg font-semibold text-gray-800">
-              <li><a onClick={() => setOpen(false)} href="#cursos">Cursos</a></li>
+              <li><a onClick={() => { setOpen(false); scrollParaCursos() }} href="#cursos">Cursos</a></li>
               <li><a onClick={() => setOpen(false)} href="#como-funciona">Como funciona</a></li>
               <li><a onClick={() => setOpen(false)} href="#depoimentos">Depoimentos</a></li>
               <li><a onClick={() => setOpen(false)} href="#contato">Contato</a></li>
             </ul>
 
-            {/* BOTÃO */}
-            <a
-              href="https://wa.me/258843682011"
-              className="block mt-10 text-center bg-orange-500 text-white py-3 rounded-full font-bold"
+            {/* BOTÃO MOBILE - SCROLL */}
+            <button
+              onClick={() => { setOpen(false); scrollParaCursos() }}
+              className="block w-full mt-10 text-center bg-orange-500 text-white py-3 rounded-full font-bold transition"
             >
               Inscrever-me
-            </a>
+            </button>
           </div>
         </div>
       )}
 
       {/* HERO */}
       <section className="bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32">
-
-        {/* BADGE */}
         <span className="mb-6 inline-block bg-orange-100 text-orange-600 font-bold px-6 py-2 rounded-full animate-pulse">
           🚨 Vagas limitadas – Inscrições abertas
         </span>
 
-        {/* TÍTULO */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 text-gray-800 max-w-4xl">
           Cursos Básicos Profissionais <span className="text-orange-500">2026</span>
         </h1>
 
-        {/* TEXTO */}
         <p className="text-base sm:text-lg md:text-2xl mb-10 text-gray-700 max-w-3xl">
           Treinamento 100% online • 3 semanas • Certificado incluído • Entrada rápida no mercado
         </p>
 
-        {/* CTA */}
-        <a
-          href="https://wa.me/258843682011"
+        {/* BOTÃO COMEÇAR AGORA */}
+        <button
+          onClick={scrollParaCursos}
           className="bg-gradient-to-r from-orange-400 to-yellow-400 text-black px-12 py-4 rounded-full text-xl font-bold shadow-lg hover:scale-105 transition"
         >
           Quero começar agora
-        </a>
+        </button>
       </section>
     </>
   )

@@ -6,12 +6,13 @@ import Contato from './Contato'
 
 export default function Home() {
   return (
-    <main className="bg-black text-white font-sans">
+    <main className="font-sans">
       <Hero />
       <Cursos />
       <ComoFunciona />
       <Depoimentos />
       <Contato />
+
       <footer className="py-6 bg-black text-white text-center">
         © 2026 Engenhando Serviços. Todos os direitos reservados.
       </footer>
