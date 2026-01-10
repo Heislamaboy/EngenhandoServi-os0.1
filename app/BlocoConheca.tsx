@@ -27,7 +27,7 @@ export default function BlocoConheca() {
   useEffect(() => {
     if (!visivel) return
     let start = 0
-    const duration = 8000
+    const duration = 12000
     const stepTime = Math.floor(duration / totalAlunos)
     const timer = setInterval(() => {
       start += 1
