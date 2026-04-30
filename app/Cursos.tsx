@@ -7,19 +7,19 @@ const cursos = [
   {
     nome: 'Banderola / Flagman',
     descricao: 'Formação para controle e sinalização de obras e estradas.',
-    preco: '3050 MZN',
+    preco: '4250 MZN',
     imagem: '/banderola.png'
   },
   {
     nome: 'Rigger',
     descricao: 'Curso essencial para içamento e movimentação de cargas.',
-    preco: '3050 MZN',
+    preco: '4250 MZN',
     imagem: '/rigger.png'
   },
   {
     nome: 'Sinalizador / Banksman',
     descricao: 'Capacitação para orientar máquinas pesadas.',
-    preco: '3050 MZN',
+    preco: '4250 MZN',
     imagem: '/sinalizador.png'
   }
 ]
